@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "check-node-version --node 8 && nyc --reporter=html mocha test/index.spec.js",
+    "test": "nyc --reporter=html mocha test/index.spec.js",
     "clean": "rimraf lib",
     "compile": "babel src/ --out-dir lib/",
     "lint": "eslint src/ test/",
+    "pretest": "check-node-version --node 8",
     "prepublish": "npm run clean && npm run compile"
   },
   "author": "",

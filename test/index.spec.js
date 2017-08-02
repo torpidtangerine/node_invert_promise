@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const { invertPromise } = require('../src/index');
 const util = require('util');
 const sinon = require('sinon');
@@ -36,7 +37,7 @@ describe('invertPromise', () => {
     const error = await catchResolve({ hello: 'world' });
 
     expect(util.inspect).to.have.been.calledWithMatch({ hello: 'world' }, { depth: 2 });
-    expect(error.message).to.match(/^Expected rejection received: \{ hello: \'world\' \}/);
+    expect(error.message).to.match(/^Expected rejection received: \{ hello: 'world' \}/);
   });
 
   it('attaches the result to .result', async () => {
